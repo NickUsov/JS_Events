@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Js Events</title>
+</head>
+<body>
+    <!--1 *********************************************************-->
+
+
+    <!-- <input/>
+    <script>
+        document.getElementsByTagName('input')[0].onkeypress = function(e) {
+            var chr = getChar(e);
+            if (chr == null) { 
+                return;
+            }
+            if (chr >= '0' && chr <= '9') {
+                return false;
+            }
+        }
+        function getChar(event) {
+            if (event.which != 0 && event.charCode != 0) {
+                if (event.which < 32) {
+                    return null;
+                }
+                return String.fromCharCode(event.which)
+            }
+            return null;
+        }
+    </script> -->
+
+    <!--2 *********************************************************-->
+
+    <!-- <button  id="btn_open" style="display: block">Open</button>
+    <div id="modal" style="display: none; border: 1px solid black; width: 300px; z-index: 1;">
+        <h4 style="text-align: center">Hello from Modal window!</h4>
+        <button id="btn_modal" style="width: 120px; height: 40px; margin: 20% 30%;">Close</button>
+    </div>
+    <script>
+        let btn = document.getElementsByTagName('button')[0];
+        btn.onclick = function() {
+            let modal = document.getElementById('modal');
+            let modalStyle = modal.style;
+            modalStyle.display = "block";
+            let open = document.getElementById('btn_open');
+            let openStyle = open.style;
+            openStyle.display = "none";
+        }
+        let btn_modal = document.getElementById('btn_modal');
+        btn_modal.onclick = function() {
+            let modal = document.getElementById('modal');
+            let modalStyle = modal.style;
+            modalStyle.display = "none";
+            let open = document.getElementById('btn_open');
+            let openStyle = open.style;
+            openStyle.display = "block";
+        } 
+    </script>-->
+
+
+        <!--3 *********************************************************-->
+
+        <!-- <style>
+            #field {
+                width: 1140px;
+                height: 770px;
+                background:url(field.jpg);
+                position: relative;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            #ball {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 40px;
+                height: 40px;
+                transition: all 3s;
+            }
+        </style>
+        <div id="field">
+            <img src="https://js.cx/clipart/ball.svg" id="ball">
+        </div>
+        <script>
+            let field = document.getElementById('field');
+            let ball = document.getElementById('ball');
+            field.onclick = function(event) {
+                let fieldCoords = this.getBoundingClientRect();
+                let fieldInnerCoords = {
+                    top: fieldCoords.top + field.clientTop,
+                    left: fieldCoords.left + field.clientLeft
+                    };
+                let ballCoords = {
+                    top: event.clientY - fieldInnerCoords.top - ball.clientHeight / 2,
+                    left: event.clientX - fieldInnerCoords.left - ball.clientWidth / 2
+                };
+                if (ballCoords.top < 0) 
+                        ballCoords.top = 0;
+                if (ballCoords.left < 0) 
+                    ballCoords.left = 0;
+                if (ballCoords.left + ball.clientWidth > field.clientWidth) {
+                    ballCoords.left = field.clientWidth - ball.clientWidth;
+                }
+                if (ballCoords.top + ball.clientHeight > field.clientHeight) {
+                    ballCoords.top = field.clientHeight - ball.clientHeight;
+                }
+                ball.style.left = ballCoords.left + 'px';
+                ball.style.top = ballCoords.top + 'px';
+            }
+        </script> -->
+
+        <!-- 4 ***************************************************************************************-->
+
+        <!-- <style>
+            #container {
+                display: flex;
+                padding: 10px;
+            }
+            #t_light {
+                border: 1px solid gray;
+                border-radius: 5px;
+                display: flex;
+                padding: 10px;
+            }
+            .circle {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border: 1px solid gray;
+                margin: 5px;
+            }
+            button {
+                border-radius: 5px;
+                margin-left: 10px;
+                width: 60px;
+            }
+        </style>
+        <div id="container">
+            <div id="t_light">
+                <div id="green" class="circle" style="background-color: green">
+
+                </div>
+                <div id="yellow" class="circle">
+
+                </div>
+                <div id="red" class="circle">
+
+                </div>
+                
+            </div>
+            <button id="btn">NEXT</button>
+        </div>
+        <script>
+            let btn = document.getElementById('btn');
+            btn.onclick = function() {
+                let green = document.getElementById('green');
+                let yellow = document.getElementById('yellow');
+                let red = document.getElementById('red');
+                let g_style = green.style;
+                let y_style = yellow.style;
+                let r_style = red.style;
+                if(g_style.backgroundColor == 'green') {
+                    g_style.backgroundColor = 'white';
+                    y_style.backgroundColor = 'yellow';
+                    this._flag = 0;
+                    return;
+                }
+                if(y_style.backgroundColor == 'yellow') {
+                    console.log(this._flag);
+                    if(this._flag == 0) {
+                        y_style.backgroundColor = 'white';
+                        r_style.backgroundColor = 'red';
+                        return;
+                    }
+                    if(this._flag == 1) {
+                        y_style.backgroundColor = 'white';
+                        g_style.backgroundColor = 'green';
+                        return;
+                    }
+                }
+                if(r_style.backgroundColor == 'red') {
+                    r_style.backgroundColor = 'white';
+                    y_style.backgroundColor = 'yellow';
+                    this._flag = 1;
+                    console.log('red:' +this._flag);
+                    return;
+                }
+            }
+        </script> -->
+
+        <!-- 5 ************************************************************************************-->
+        
+        <!-- <style>
+            .backlight {
+                background-color: coral;
+            }
+            
+        </style>
+        <ol>
+            <li>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words</li>
+            <li>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words</li>
+            <li>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words</li>
+            <li>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words</li>
+            <li>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words</li>
+            <li>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words</li>
+            <li>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words</li>
+        </ol>
+        <script>
+            let order = document.getElementsByTagName('ol')[0];
+            order.onclick = function() {
+                for(let i = 0; i < order.childElementCount; i++) {
+                    let list = document.getElementsByTagName('li')[i];
+                    if(list.classList.contains('backlight')) {
+                        list.classList.remove('backlight');
+                    }
+                    let target = event.target;
+                    target.classList.add('backlight');
+                }
+            }
+        </script> -->
+
+        <!-- 6 ************************************************************************************************** -->
+
+        <!-- <style>
+            body {
+                height: 2000px;
+            }
+            .tooltip {
+                position: fixed;
+                padding: 10px 20px;
+                text-align: center;
+                color: #fff;
+                background: rgb(161, 6, 167);
+            }
+         </style>
+            <button data-tooltip="tool tip 1">Button 1</button>
+            <div style="padding-top: 50px">
+                <button data-tooltip="tool tip 2">Button 2</button>
+            </div>
+        <script>
+            let showingTooltip;
+            document.onmouseover = function(e) {
+                let target = e.target;
+                let tooltip = target.getAttribute('data-tooltip');
+                if (!tooltip) {
+                    return;
+                } 
+                let tooltipElem = document.createElement('div');
+                tooltipElem.className = 'tooltip';
+                tooltipElem.innerHTML = tooltip;
+                document.body.appendChild(tooltipElem);
+                let coords = target.getBoundingClientRect();
+                let left = coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
+                if (left < 0) {
+                    left = 0;
+                }
+                let top = coords.top - tooltipElem.offsetHeight - 5;
+                if (top < 0) {
+                    top = coords.top + target.offsetHeight + 5;
+                }
+                tooltipElem.style.left = left + 'px';
+                tooltipElem.style.top = top + 'px';
+                showingTooltip = tooltipElem;
+            };
+            document.onmouseout = function(e) {
+                if (showingTooltip) {
+                    document.body.removeChild(showingTooltip);
+                    showingTooltip = null;
+                }
+            };
+        </script> -->
+</body>
+</html>
